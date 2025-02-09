@@ -1,0 +1,15 @@
+=========================================== chp 4: Using nodemon package =========================================== 
+
+npm i -g nodemon
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+=========================================== chp 5: Module in Nodejs =========================================== 
+Types of Module:
+1 - Core Modules
+    Built-in Module provided  by Nodejs, such as Fs, http, path, etc
+2 - Local Modules:
+    Custom modules created by developer and located with in the project,
+3 - Third-party Modules
+    Modules installed via npm (node package Manager)
+
