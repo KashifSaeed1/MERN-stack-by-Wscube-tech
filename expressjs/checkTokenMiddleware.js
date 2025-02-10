@@ -1,4 +1,4 @@
-let myToken = '12345';
+// let myToken = '12345';
  
 
 let checkToken = (req, res, next)=>{
@@ -10,7 +10,7 @@ let checkToken = (req, res, next)=>{
             }
         )
     }
-    if(req.query.token != myToken){
+    if(req.query.token != process.env.MYToken){
         return res.send(
             {
                 status: 0,
