@@ -1,40 +1,46 @@
 const express = require("express");
-
 const app = express();
-const PORT = 3001;
+const PORT = 3002;
+let myToken = "12345";
 
-// Sample product data
-const products = [
-  { id: 1, name: "Laptop", category: "electronics", price: "high" },
-  { id: 2, name: "Smartphone", category: "electronics", price: "medium" },
-  { id: 3, name: "T-Shirt", category: "clothing", price: "low" },
-  { id: 4, name: "Jeans", category: "clothing", price: "medium" },
-  { id: 5, name: "Headphones", category: "electronics", price: "low" },
-  { id: 6, name: "Shoes", category: "clothing", price: "high" },
-];
+let checkToken = (req, res, next) => {
+  let token = req.headers.authorization; 
 
-app.get("/products", (req, res) => {
-    console.log("req.query ===>", req.query);
-  const { category, price } = req.query;
-
-  let filteredProducts = products;
-
-  if (category) {
-    filteredProducts = filteredProducts.filter(
-      (product) => product.category.toLowerCase() === category.toLowerCase()
-    );
+  if (!token) {
+    return res.send({
+      status: 0,
+      msg: "Please fill the token",
+    });
   }
 
-  if (price) {
-    filteredProducts = filteredProducts.filter(
-      (product) => product.price.toLowerCase() === price.toLowerCase()
-    );
-  }
+  token = token.replace("Bearer ", "").trim();
 
-  res.json(filteredProducts);
+  if (token !== myToken) {
+    return res.send({
+      status: 0,
+      msg: "Please fill the correct token",
+    });
+  }
+  next(); 
+};
+
+app.get("/", (req, res) => {
+  res.send({
+    status: 1,
+    message: "Home page calling",
+  });
 });
 
-// Start the server
+app.get("/news", checkToken, (req, res) => {
+  res.send({
+    status: 1,
+    message: "News API",
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+// not clear above code
