@@ -51,7 +51,7 @@ const server = http.createServer((req, res) => {
         },
       ],
     };
-    res.end(JSON.stringify(obj));
+    res.send(JSON.stringify(obj));
   } 
   else if (req.url === "/about") {
     res.end(
@@ -88,7 +88,8 @@ const server = http.createServer((req, res) => {
       ],
     };
     res.end(JSON.stringify(services));
-  } else if (req.url === "/team") {
+  } 
+  else if (req.url === "/team") {
     let team = {
       team: [
         { name: "John Doe", role: "CEO" },
