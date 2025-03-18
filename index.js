@@ -69,24 +69,73 @@
 
 
 
-// Write middleware that logs the current timestamp of when a request is received.
-const express = require("express");
-const app = express();
-const PORT = 3004;
+// Question 2:  Write middleware that logs the current timestamp of when a request is received.
+// const express = require("express");
+// const app = express();
+// const PORT = 3004;
 
-let checkurl = (req, res, next) => {
-  // console.log(`calling: : :  ===>  [${new Date().toISOString()}] ${req.method} ${req.url}`);
-  console.log(res.json({ data: new Date().toISOString() }));
-  next();
-};
-app.use(checkurl);
+
+// let checkurl = (req, res, next) => {
+//   console.log(res.json({ data: new Date().toISOString() }));
+//   next();
+// };
+// app.use(checkurl);
+
+// app.get("/", (req, res) => {
+//   res.send("home route is calling");
+// });
+
+// app.listen(PORT, () => {
+//   console.log(`server is running on the port ${PORT}`);
+// });
+
+// Question 3: Create middleware that keeps track of how many times the server has been accessed and logs the count.
+
+// const express = require("express");
+// const app = express();
+// const PORT = 3004;
+
+
+// let serverCount = 0;
+// let checkurl = (req, res, next) => {
+//   console.log(`server is access this  ${serverCount} time!!!}`);
+//   next();
+// };
+// app.use(checkurl);
+
+// app.get("/", (req, res) => {
+//   res.send("home route is calling");
+// });
+
+// app.listen(PORT, () => {
+//   console.log(`server is running on the port ${PORT}`);
+// });
+
+// Question 3: Write middleware that blocks all incoming requests and sends a response "Site is under maintenance" without calling next().
+
+const express = require("express");
+const { checkToken } = require("./checkTokenMiddleware");
+const app = express();
+const PORT = 3004 ;
 
 app.get("/", (req, res) => {
   res.send("home route is calling");
 });
 
+// route level middleware calling
+app.get("/news", checkToken,  (req, res) => {
+  res.send("news route is calling");
+});
+
 app.listen(PORT, () => {
   console.log(`server is running on the port ${PORT}`);
 });
+
+
+
+
+
+
+
 
 
