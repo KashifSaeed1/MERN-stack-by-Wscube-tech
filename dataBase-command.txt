@@ -1,0 +1,21 @@
+1 - show dbs | show databases  ==> show all data base
+2 - use myschoolDB ===> create or switch databases
+3 - db.createCollection('student') ====> create Collection 
+4 - db.student.drop() ===> delete Collection
+5 - db.student.renameCollection("students");
+6 - db.students.insertOne({
+    "Sname": "kashif saeed",
+    "email": "kashifsaeedman@gmail.com"
+})                               ===> for data inserting
+7 - db.students.insertMany([{},{}])  =====>  array of object 
+8 - db.students.find().pretty(); ====>  show all data in the data base in terminal
+9 - db.students.find({"name": "kashif saeed"}) =====> find particular data
+10 - db.students.findOne({_id: ObjectId("67d90e95fe7116b2a8b62688")}) ====> find particular data with id
+11 - db.students.deleteOne({_id: ObjectId("67d90e95fe7116b2a8b62688")}) ====> delete the student
+12 - db.movies.deleteMany( { title: "Titanic" } )   ====> delete the muliple record
+13 - 
+
+
+
+
+
