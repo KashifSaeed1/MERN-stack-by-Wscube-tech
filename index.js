@@ -111,12 +111,19 @@
 //   console.log(`server is running on the port ${PORT}`);
 // });
 
-// Question 3: Write middleware that blocks all incoming requests and sends a response "Site is under maintenance" without calling next().
 
+
+
+
+// what is env Setting up .env in Node.js
 const express = require("express");
 const { checkToken } = require("./checkTokenMiddleware");
 const app = express();
-const PORT = 3004 ;
+require('dotenv').config();
+// const PORT = 3004 ;
+
+console.log(process.env.myToken);
+
 
 app.get("/", (req, res) => {
   res.send("home route is calling");
@@ -127,10 +134,11 @@ app.get("/news", checkToken,  (req, res) => {
   res.send("news route is calling");
 });
 
+
+const PORT = 3005;
 app.listen(PORT, () => {
   console.log(`server is running on the port ${PORT}`);
 });
-
 
 
 
