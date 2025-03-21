@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.form-container {
+  width: 40%;
+  background: #e0e0e0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.table-container {
+  width: 55%;
+  background: #e0e0e0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.table-container h2 {
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: #ddd;
+}
