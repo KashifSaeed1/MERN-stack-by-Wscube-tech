@@ -1,0 +1,18 @@
+1. Library Management System 📚
+    Database Name: libraryDB
+    Collection Name: books
+    
+API Requirements:
+* Create a new book with title, author, genre, publishedYear, and copiesAvailable.
+* Prevent duplicate book titles.
+* Get all books or filter by genre.
+* Update book details or increase copiesAvailable when a book is returned.
+* Delete a book by _id.
+
+
+Example API Endpoints:
+    POST /books/add → Add a new book  
+    GET /books → Get all books  
+    GET /books?genre=fiction → Get books by genre  
+    PUT /books/update/:id → Update book details  
+    DELETE /books/delete/:id → Remove a book  

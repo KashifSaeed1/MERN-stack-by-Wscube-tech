@@ -1,11 +1,16 @@
-const { MongoClient } = require("mongodb");
-let dbConnectionUrl = "mongodb://127.0.0.1:27017"; 
-const client = new MongoClient(dbConnectionUrl);
+const {MongoClient} = require("mongodb");
+const url = "mongodb://localhost:27017";
+const client = new MongoClient(url);
 
-const dbConnection = async () => {
-  await client.connect();
-  let db = client.db("mongoDbProjectDatabase");
-  return db;
-};
+async function dbConnection(){
+  try{
+    await client.connect();
+    console.log('db connection successfully')
+    return client.db('Database1')
+  }catch(error){
+    console.log('db connection failed', error)
+    return null
+  }
+}
 
-module.exports = { dbConnection };
+module.exports = dbConnection;
